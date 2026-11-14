@@ -1,31 +1,43 @@
-/vendor/
-node_modules/
+# Laravel specific
+.env
+.env.backup
+.env.*.php
+.env.php
+.env.production
+.env.example
+composer.lock
+package-lock.json
 npm-debug.log
 yarn-error.log
-
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
-
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
-/.phpunit.cache
-
+yarn.lock
+/storage/*.key
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
 /public/build
 /storage/pail
-.env.backup
-.env.production
-.phpactor.json
+
+# Homestead / Vagrant
+Homestead.json
+Homestead.yaml
+/.vagrant
+
+# Testing / PHPUnit
+.phpunit.result.cache
+/.phpunit.cache
+/phpunit.xml
+/phpunit.xml.dist
+
+# Tooling
 auth.json
+.phpactor.json
+.editorconfig
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/
+.idea
