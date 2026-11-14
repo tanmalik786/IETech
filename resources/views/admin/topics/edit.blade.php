@@ -1,0 +1,59 @@
+<div class="modal fade" id="editTopic">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Topic</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form action="" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="">Title <span class="text-danger">*</span></label>
+                                <input type="text" name="title" required maxlength="50" class="form-control @error('title') is-invalid @enderror">
+                                @error('title')
+                                <span class="invalid-response">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+{{--                        <div class="col-lg-12">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="">Subtitle</label>--}}
+{{--                                <input type="text" name="subtitle" maxlength="50" class="form-control">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea name="description" rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        @if( count($parent_topics) > 0 )
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="">Parent Topic</label>
+                                    <select name="parent_id" id="" class="custom-select">
+                                        <option value="" selected>No Parent</option>
+                                        @foreach( $parent_topics as $topic)
+                                            <option value="{{$topic->id}}">{{$topic->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
